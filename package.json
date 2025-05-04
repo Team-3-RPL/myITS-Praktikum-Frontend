@@ -14,9 +14,10 @@
 		"obfuscate:static": "javascript-obfuscator .next/static --output .next/static --compact true --self-defending true --target 'browser'",
 		"prepare-build": "bun run lint:biome && bun run check:biome && bun run format:biome",
 		"lint": "next lint",
-		"lint:biome": "bunx @biomejs/biome lint --write .",
-		"check:biome": "bunx @biomejs/biome check --write .",
-		"format:biome": "bunx @biomejs/biome format --write ."
+		"lint:biome": "npx @biomejs/biome lint --write .",
+		"check:biome": "npx @biomejs/biome check --write .",
+		"format:biome": "npx @biomejs/biome format --write .",
+		"prepare": "husky install"
 	},
 	"dependencies": {
 		"@iconify/react": "^5.0.2",
@@ -59,5 +60,8 @@
 		"postcss": "^8",
 		"tailwindcss": "^3.4.1",
 		"typescript": "^5"
+	},
+	"lint-staged": {
+		"*.(js|ts|jsx|tsx)": "bun prepare-build"
 	}
 }
