@@ -24,10 +24,12 @@ export default {
 				primary: {
 					DEFAULT: "hsl(var(--primary))",
 					foreground: "hsl(var(--primary-foreground))",
+					blue: "#1C3F94",
 				},
 				secondary: {
 					DEFAULT: "hsl(var(--secondary))",
 					foreground: "hsl(var(--secondary-foreground))",
+					blue: "#2563EB",
 				},
 				muted: {
 					DEFAULT: "hsl(var(--muted))",

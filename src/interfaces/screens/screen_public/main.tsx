@@ -50,10 +50,12 @@ const ScreenPublic = () => {
 	return (
 		<Fragment>
 			<div className="h-screen flex justify-center items-center">
-				<div>
+				<div className="w-full max-w-[540px]">
 					<form onSubmit={onSubmit}>
-						<div className="text-center mb-4">env : {ENV.MODE}</div>
-						<div className="flex justify-center">
+						<div className="flex justify-between items-center mb-8">
+							<h1 className="font-semibold text-2xl text-center">
+								MyITS Praktikum
+							</h1>
 							<UseTheme />
 						</div>
 						<FormInput
@@ -73,7 +75,7 @@ const ScreenPublic = () => {
 							rules={{ required: true }}
 						/>
 						<div className="h-4" />
-						<Button disabled={loading} className="w-full">
+						<Button variant="primaryBlue" disabled={loading} className="w-full">
 							Submit
 						</Button>
 					</form>

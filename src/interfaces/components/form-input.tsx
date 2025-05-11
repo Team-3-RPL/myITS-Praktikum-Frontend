@@ -49,6 +49,7 @@ type CustomInputProps<
 	maxLength?: number;
 	prefix?: ReactNode;
 	suffix?: ReactNode;
+	className?: string;
 };
 
 const FormInput = <
@@ -68,6 +69,7 @@ const FormInput = <
 	manualSearch,
 	onSearch,
 	maxLength,
+	className,
 }: CustomInputProps<TFieldValues, TName>) => {
 	const [searchInput, setData] = useState<string>("");
 
@@ -93,6 +95,7 @@ const FormInput = <
 						disabled={disabled}
 						maxLength={maxLength || 255}
 						{...field}
+						className={className}
 						placeholder={placeholder}
 						onChange={(e) => field.onChange(e.target.value)}
 					/>
@@ -102,6 +105,7 @@ const FormInput = <
 					<Input
 						type="password"
 						{...field}
+						className={className}
 						placeholder={placeholder}
 						onChange={(e) => field.onChange(e.target.value)}
 					/>
@@ -112,6 +116,7 @@ const FormInput = <
 						type="number"
 						disabled={disabled}
 						{...field}
+						className={className}
 						placeholder={placeholder}
 						onChange={(value) => field.onChange(value)}
 						style={{ width: "100%" }}
@@ -162,6 +167,7 @@ const FormInput = <
 						{...field}
 						onChange={(e) => field.onChange(e.target)}
 						value={field.value}
+						className={className}
 						defaultValue="option-one"
 					>
 						{options?.map((option) => (
@@ -180,6 +186,7 @@ const FormInput = <
 					<Input
 						{...field}
 						placeholder={placeholder}
+						className={className}
 						onChange={(e) => field.onChange(e.target.value)}
 					/>
 				);
