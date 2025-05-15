@@ -1,13 +1,19 @@
 "use client";
-import React, {
-	type FC,
-	Fragment,
-	type PropsWithChildren,
-	useEffect,
-	useState,
-} from "react";
+import type React from "react";
+import { Fragment, useEffect, useState } from "react";
 
-const MainLayout: FC<PropsWithChildren> = ({ children }) => {
+import { cn } from "@/lib/utils";
+
+type MainLayoutProps = {
+	children: React.ReactNode;
+	withNavbar?: boolean;
+} & React.ComponentProps<"main">;
+
+const MainLayout = ({
+	children,
+	className,
+	withNavbar = true,
+}: MainLayoutProps) => {
 	const [mounted, setMounted] = useState<boolean>(false);
 
 	useEffect(() => {
@@ -20,7 +26,8 @@ const MainLayout: FC<PropsWithChildren> = ({ children }) => {
 
 	return (
 		<Fragment>
-			<main className="dark:bg-neutral-900">{children}</main>
+			{withNavbar && <div>Navbar</div>}
+			<main className={cn(className, "")}>{children}</main>
 		</Fragment>
 	);
 };

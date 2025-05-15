@@ -27,7 +27,7 @@ type TypographyColor = "foreground" | "white" | "black" | "red" | "blue";
 type TypographyWeight = "normal" | "medium" | "semibold" | "bold";
 
 type TypographyProps = {
-	variant: TypographyVariants;
+	variant?: TypographyVariants;
 	className?: string;
 	children: React.ReactNode;
 	color?: TypographyColor;

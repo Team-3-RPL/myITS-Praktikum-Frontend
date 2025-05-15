@@ -49,6 +49,7 @@ type CustomInputProps<
 	maxLength?: number;
 	prefix?: ReactNode;
 	suffix?: ReactNode;
+	labelClassName?: string;
 	className?: string;
 };
 
@@ -69,6 +70,7 @@ const FormInput = <
 	manualSearch,
 	onSearch,
 	maxLength,
+	labelClassName,
 	className,
 }: CustomInputProps<TFieldValues, TName>) => {
 	const [searchInput, setData] = useState<string>("");
@@ -95,7 +97,7 @@ const FormInput = <
 						disabled={disabled}
 						maxLength={maxLength || 255}
 						{...field}
-						className={className}
+						className={cn(className, "bg-foreground text-background")}
 						placeholder={placeholder}
 						onChange={(e) => field.onChange(e.target.value)}
 					/>
@@ -105,7 +107,7 @@ const FormInput = <
 					<Input
 						type="password"
 						{...field}
-						className={className}
+						className={cn(className, "bg-foreground text-background")}
 						placeholder={placeholder}
 						onChange={(e) => field.onChange(e.target.value)}
 					/>
@@ -116,7 +118,7 @@ const FormInput = <
 						type="number"
 						disabled={disabled}
 						{...field}
-						className={className}
+						className={cn(className, "bg-foreground text-background")}
 						placeholder={placeholder}
 						onChange={(value) => field.onChange(value)}
 						style={{ width: "100%" }}
@@ -197,7 +199,10 @@ const FormInput = <
 		<div className="mb-2">
 			{type !== "checkbox" && label && (
 				<label
-					className="text-xs text-neutral-400 dark:text-neutral-700"
+					className={cn(
+						"text-xs text-neutral-400 dark:text-neutral-700",
+						labelClassName,
+					)}
 					htmlFor={name}
 				>
 					{label}{" "}

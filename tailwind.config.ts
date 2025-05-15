@@ -53,6 +53,9 @@ export default {
 					"4": "hsl(var(--chart-4))",
 					"5": "hsl(var(--chart-5))",
 				},
+				dark: {
+					main: "#1E1E1E",
+				},
 			},
 			borderRadius: {
 				lg: "var(--radius)",

@@ -1,21 +1,25 @@
 "use client";
+import { Calendar } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { FormProvider } from "react-hook-form";
 
 import Typography from "@/interfaces/components/Typography";
 import FormInput from "@/interfaces/components/form-input";
 import { Button } from "@/interfaces/components/ui/button";
 import MainLayout from "@/interfaces/layouts/main_layout";
-import { Calendar } from "lucide-react";
 
 export default function Sandbox() {
-	const { control } = useForm({
+	const methods = useForm({
 		defaultValues: {
 			expiresInMins: 100,
 			username: "emilys",
 			password: "",
 			date: "2023-10-01",
+			check: true,
+			select: true,
 		},
 	});
+	const { control } = methods;
 
 	return (
 		<MainLayout>
@@ -32,32 +36,53 @@ export default function Sandbox() {
 			<div className="p-12">
 				<h1 className="font-semibold">Form Input</h1>
 
-				<div className="flex flex-wrap gap-8 mt-8">
-					<FormInput
-						name="username"
-						control={control}
-						type="text"
-						label="Username"
-						rules={{ required: true }}
-						errors={undefined}
-					/>
-					<FormInput
-						name="date"
-						control={control}
-						type="date"
-						label="date"
-						rules={{ required: true }}
-						errors={undefined}
-					/>
-					<FormInput
-						name="password"
-						control={control}
-						type="password"
-						label="password"
-						rules={{ required: true }}
-						errors={undefined}
-					/>
-				</div>
+				<FormProvider {...methods}>
+					<div className="flex flex-wrap gap-8 mt-8">
+						<FormInput
+							name="username"
+							control={control}
+							type="text"
+							label="Username"
+							rules={{ required: true }}
+							errors={undefined}
+						/>
+						<FormInput
+							name="date"
+							control={control}
+							type="date"
+							label="date"
+							rules={{ required: true }}
+							errors={undefined}
+						/>
+						<FormInput
+							name="password"
+							control={control}
+							type="password"
+							label="password"
+							rules={{ required: true }}
+							errors={undefined}
+						/>
+						<FormInput
+							name="check"
+							control={control}
+							type="checkbox"
+							label="checkbox"
+							rules={{ required: true }}
+							errors={undefined}
+						/>
+						<FormInput
+							name="select"
+							control={control}
+							type="radio"
+							options={[
+								{ label: "Option 1", value: "option1" },
+								{ label: "Option 2", value: "option2" },
+							]}
+							label="SELECT AMONG THESE OPTIONS"
+							rules={{ required: true }}
+						/>
+					</div>
+				</FormProvider>
 			</div>
 
 			<div className="p-12">
