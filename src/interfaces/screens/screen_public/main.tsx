@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function LandingPage() {
 	return (
-		<MainLayout className="h-screen relative">
+		<MainLayout withNavbar={false} className="h-screen relative">
 			<Image
 				src={"/images/BG-ITS.png"}
 				fill

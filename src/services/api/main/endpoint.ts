@@ -1,6 +1,11 @@
 export const MAIN_ENDPOINT = {
 	Auth: {
-		Login: "/auth/login",
+		Login: "/api/login",
 		CurrentUser: "/auth/me",
+	},
+	User: {
+		Practicum: "/api/practicum",
+		Activity: "/api/activity",
+		Submission: "/api/submission"
 	},
 };

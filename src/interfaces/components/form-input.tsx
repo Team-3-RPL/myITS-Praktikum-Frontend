@@ -97,7 +97,7 @@ const FormInput = <
 						disabled={disabled}
 						maxLength={maxLength || 255}
 						{...field}
-						className={cn(className, "bg-foreground text-background")}
+						className={cn(className, "bg-background text-foreground")}
 						placeholder={placeholder}
 						onChange={(e) => field.onChange(e.target.value)}
 					/>
@@ -107,7 +107,7 @@ const FormInput = <
 					<Input
 						type="password"
 						{...field}
-						className={cn(className, "bg-foreground text-background")}
+						className={cn(className, "bg-background text-foreground")}
 						placeholder={placeholder}
 						onChange={(e) => field.onChange(e.target.value)}
 					/>
@@ -118,7 +118,7 @@ const FormInput = <
 						type="number"
 						disabled={disabled}
 						{...field}
-						className={cn(className, "bg-foreground text-background")}
+						className={cn(className, "bg-background text-foreground")}
 						placeholder={placeholder}
 						onChange={(value) => field.onChange(value)}
 						style={{ width: "100%" }}

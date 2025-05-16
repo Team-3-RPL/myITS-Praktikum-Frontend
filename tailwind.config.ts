@@ -30,6 +30,7 @@ export default {
 					DEFAULT: "hsl(var(--secondary))",
 					foreground: "hsl(var(--secondary-foreground))",
 					blue: "#2563EB",
+					background: "#EAEDF8",
 				},
 				muted: {
 					DEFAULT: "hsl(var(--muted))",

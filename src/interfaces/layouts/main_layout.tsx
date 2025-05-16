@@ -1,7 +1,7 @@
-"use client";
 import type React from "react";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 
+import Navbar from "@/interfaces/layouts/navbar";
 import { cn } from "@/lib/utils";
 
 type MainLayoutProps = {
@@ -14,20 +14,15 @@ const MainLayout = ({
 	className,
 	withNavbar = true,
 }: MainLayoutProps) => {
-	const [mounted, setMounted] = useState<boolean>(false);
-
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-
-	if (!mounted) {
-		return children;
-	}
-
 	return (
 		<Fragment>
-			{withNavbar && <div>Navbar</div>}
-			<main className={cn(className, "")}>{children}</main>
+			{withNavbar && (<Navbar />)}
+			<main className={cn(
+				className,
+				"min-h-screen bg-secondary-background p-8"
+			)}>
+				{children}
+			</main>
 		</Fragment>
 	);
 };
